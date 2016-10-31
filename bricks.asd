@@ -12,7 +12,8 @@
     :maintainer "ks"
     :author "ks"    
     :serial t
-    :components (                 
+    :components (
+                 (:file "main")
 ;		 (:file "parameters")
 ;		 (:file "pictures"
 ;			:depends-on ("parameters"))
