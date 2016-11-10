@@ -1,10 +1,10 @@
 
 ;;;;; -*- Mode: Lisp; Syntax: ANSI-Common-Lisp; Base: 10 -*-
 
-(defpackage #:bricks-asd
+(defpackage bricks
   (:use :cl :asdf))
 
-(in-package :bricks-asd)
+(in-package bricks)
 
 (defsystem bricks
     :name "bricks"
@@ -13,7 +13,15 @@
     :author "ks"    
     :serial t
     :components (
-                 (:file "main")
+		 (:file "variables")
+		 (:file "sprite"
+			:depends-on ("variables"))
+		 (:file "screen"
+			:depends-on ("variables" "sprite"))
+		 (:file "ball"
+			:depends-on ("variables" "sprite"))
+                 (:file "main"
+			:depends-on ("variables" "screen"))))
 ;		 (:file "parameters")
 ;		 (:file "pictures"
 ;			:depends-on ("parameters"))
@@ -25,4 +33,4 @@
 ;			:depends-on ("parameters"))
 ;		 (:file "main"
 ;			:depends-on ("parameters" "setup"  "ball" "paddle"))))
-))
+
